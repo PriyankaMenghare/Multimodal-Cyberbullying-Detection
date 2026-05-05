@@ -1,6 +1,10 @@
 from setuptools import find_packages,setup
 from typing import List
 
+import os
+from dotenv import load_dotenv
+
+
 HYPE_E_DOT ="-e ."
 def get_requirements(file_path: str)-> List[str]:
     '''
@@ -15,11 +19,13 @@ def get_requirements(file_path: str)-> List[str]:
 
     return requirements
 
+load_dotenv()
+    
 setup(
-name = 'MLProjects',
+name = 'Cyberbullying Multimodal Detection',
 version = '0.0.1',
-author  = 'Priyanka',
-author_email = 'mengharepiu09@gmail.com',
+author  = os.getenv("AUTHOR_NAME"),
+author_email = os.getenv("AUTHOR_EMAIL"),
 packages = find_packages(),
 install_requires = get_requirements('requirements.txt')
 )
